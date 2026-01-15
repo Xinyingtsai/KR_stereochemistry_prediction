@@ -18,6 +18,7 @@ This tool predicts KR stereochemical type directly from amino-acid sequences usi
 
 ```bash
 git clone https://github.com/Xinyingtsai/KR_stereochemistry_prediction.git
+cd KR_stereochemistry_prediction
 ```
 
 ### 2. Create and activate a Python environment

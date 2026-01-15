@@ -1,38 +1,80 @@
 # KR Stereochemistry Prediction
 
-This repository contains code and data for predicting ketoreductase (KR) stereochemistry in type I polyketide synthases (PKSs) using two complementary machine-learning approaches:
+## Overview
 
-**A site-specific (residue-level) classification model**
+Ketoreductase (KR) domains in modular PKSs control the stereochemistry of β-hydroxy intermediates, which strongly influences the structure and bioactivity of polyketide natural products.  
+This tool predicts KR stereochemical type directly from amino-acid sequences using pretrained machine-learning models.
 
-**A protein language model (PLM)–based classification model**
+**Key features**
+- FASTA-based sequence input
+- ESM2-3B protein language model embeddings
+- Pretrained XGBoost classifier
+- Command-line interface for easy use
 
-The goal of this project is to improve stereochemical prediction of KR domains beyond traditional motif-based rules by leveraging sequence-level and representation-learning approaches.
 
-## Project Overview
+## Installation
 
-Ketoreductase (KR) domains control the stereochemistry of β-hydroxy groups in polyketide products. 
-In this project, we explore two strategies:
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Xinyingtsai/KR_stereochemistry_prediction.git
+```
+
+### 2. Create and activate a Python environment
+Using conda:
+```bash
+conda create -n kr_esm python=3.9
+conda activate kr_esm
+```
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+If PyTorch is not installed automatically, install it explicitly:
+```bash
+python -m pip install torch
+python -m pip install fair-esm
+```
+
+## Input Format
+Input must be a FASTA file containing one or more KR domain amino-acid sequences.
+Example:
+```bash
+>KR_001
+MSTAVALAGGDLGVT...
+>KR_002
+GAFDLVKELADK...
+```
+## Usage
+Run KR stereochemistry prediction from the project root directory:
+```bash
+python run_predict_esm.py --fasta example.fasta
+```
+## Output
+The script generates a CSV file containing prediction results:
+```bash
+KR_predictions_XGB.csv
+```
+The output file contains the following columns:
+
+**Sequence_ID**: FASTA record identifier
+
+**Predicted_Type**: KR stereochemical type (A-type or B-type)
+
+**Probability_A_type**: predicted probability for an A-type KR
+
+Example:
+```bash
+Sequence_ID,Predicted_Type,Probability_A_type
+KR_001,A-type,0.93
+KR_002,B-type,0.07
+```
+
+## Training Models
 
 **1. Site-specific classification based on aligned KR sequences and residue-level features**
 
 **2. PLM-based classification using embeddings from protein language models (ESM)**
-
-
-## Repository Structure
-
-(1) **TypeA_aligned.fasta**: Multiple sequence alignment of A-type KR domains
-
-(2) **TypeB_aligned.fasta**: Multiple sequence alignment of B-type KR domains
-
-(3) **KRc.xlsx**: Raw data and labels for KR sequences
-
-(4) **KR_Extraction.ipynb**: KR Domain Extraction (MIBiG 4.0)
-
-(5) **Site_specific.ipynb**: Site-specific Classification Model
-
-(6) **ESM.ipynb**: PLM-based Classification Model
-
-## How to Run
 
 Prepare KR sequences and data
 
@@ -42,6 +84,7 @@ Run Site_specific.ipynb for residue-level classification
 
 Run ESM.ipynb for PLM-based classification
 
+
 ## Applications
 
 Predicting KR stereochemistry in uncharacterized PKS biosynthetic gene clusters
@@ -49,3 +92,8 @@ Predicting KR stereochemistry in uncharacterized PKS biosynthetic gene clusters
 Assisting rational PKS engineering and module design
 
 Bridging sequence diversity gaps not covered by rule-based methods
+
+
+
+
+

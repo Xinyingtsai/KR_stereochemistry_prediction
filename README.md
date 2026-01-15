@@ -58,11 +58,11 @@ KR_predictions_XGB.csv
 ```
 The output file contains the following columns:
 
-**Sequence_ID**: FASTA record identifier
+Sequence_ID: FASTA record identifier
 
-**Predicted_Type**: KR stereochemical type (A-type or B-type)
+Predicted_Type: KR stereochemical type (A-type or B-type)
 
-**Probability_A_type**: predicted probability for an A-type KR
+Probability_A_type: predicted probability for an A-type KR
 
 Example:
 ```bash

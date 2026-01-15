@@ -94,6 +94,10 @@ Assisting rational PKS engineering and module design
 
 Bridging sequence diversity gaps not covered by rule-based methods
 
+## Citation
+
+If you use this code in your research, please cite our paper:
+
 
 
 

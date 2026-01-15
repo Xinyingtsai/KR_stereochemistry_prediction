@@ -20,17 +20,17 @@ In this project, we explore two strategies:
 
 ## Repository Structure
 
-(1) TypeA_aligned.fasta: Multiple sequence alignment of A-type KR domains
+(1) **TypeA_aligned.fasta**: Multiple sequence alignment of A-type KR domains
 
-(2) TypeB_aligned.fasta: Multiple sequence alignment of B-type KR domains
+(2) **TypeB_aligned.fasta**: Multiple sequence alignment of B-type KR domains
 
-(3) KRc.xlsx: Raw data and labels for KR sequences
+(3) **KRc.xlsx**: Raw data and labels for KR sequences
 
-(4) KR_Extraction.ipynb: KR Domain Extraction (MIBiG 4.0)
+(4) **KR_Extraction.ipynb**: KR Domain Extraction (MIBiG 4.0)
 
-(5) Site_specific.ipynb: Site-specific Classification Model
+(5) **Site_specific.ipynb**: Site-specific Classification Model
 
-(6) ESM.ipynb: PLM-based Classification Model
+(6) **ESM.ipynb**: PLM-based Classification Model
 
 ## How to Run
 
